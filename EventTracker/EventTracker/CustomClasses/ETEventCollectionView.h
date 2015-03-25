@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ETImageView.h"
+
 @interface ETEventCollectionView : UICollectionViewCell
 
+@property (nonatomic, weak) IBOutlet ETImageView *eventImageView;
+@property (nonatomic, weak) IBOutlet UILabel *eventNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *placeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *eventTypeLabel;
+
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *widthSpaceContraint;
+
+- (void) configure:(NSString *) type;
 @end

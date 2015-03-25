@@ -10,4 +10,16 @@
 
 @implementation ETEventCollectionView
 
+- (void) configure:(NSString *) type {
+	
+	if ([type isEqualToString:@"menu"]) {
+		_widthSpaceContraint.constant = 150;
+
+	} else {
+		_widthSpaceContraint.constant = 350;
+
+	}
+	[self layoutIfNeeded];
+	
+}
 @end

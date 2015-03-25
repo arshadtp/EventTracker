@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "Event+ETEventHelper.h"
+#import "ETEventCollectionView.h"
 
 @interface DetailViewController () {
 	
@@ -63,13 +64,13 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	
-	static NSString *identifier = @"event_cell";
-	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+	ETEventCollectionView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ETEventCollectionView class]) forIndexPath:indexPath];
 	if (indexPath.row % 2 == 0) {
 		cell.backgroundColor = [UIColor redColor];
 	} else {
 		cell.backgroundColor = [UIColor greenColor];
 	}
+	[cell configure:viewType];
 	Event *event = [events objectAtIndex:indexPath.row];
 	NSLog(@"======%@",event.eventName);
 	return cell;
@@ -103,6 +104,7 @@
 		[self.menuCollectionView.collectionViewLayout invalidateLayout];
 		[self.menuCollectionView setCollectionViewLayout:self.menuCollectionView.collectionViewLayout animated:YES];
 	} completion:^(BOOL finished) {
+//		[self.menuCollectionView reloadData];
 	}];
 
 //	[_menuCollectionView reloadData];
