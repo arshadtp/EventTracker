@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>eventName</key>
+		<string>Impressions &amp; Expressions in MG Road</string>
+		<key>eventType</key>
+		<string>free</string>
+		<key>eventId</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Italian carnival in Electronic City </string>
+		<key>eventType</key>
+		<string>free</string>
+		<key>eventId</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Metallica Concert in Palace Grounds</string>
+		<key>eventType</key>
+		<string>paid</string>
+		<key>eventId</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Saree Exhibition in Malleswaram Grounds</string>
+		<key>eventType</key>
+		<string>free</string>
+		<key>eventId</key>
+		<integer>3</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Wine tasting event in Links Brewery</string>
+		<key>eventType</key>
+		<string>paid</string>
+		<key>eventId</key>
+		<integer>4</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Startups Meet in Kanteerava Indoor Stadium</string>
+		<key>eventType</key>
+		<string>paid</string>
+		<key>eventId</key>
+		<integer>5</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Summer Noon Party in Kumara Park</string>
+		<key>eventType</key>
+		<string>paid</string>
+		<key>eventId</key>
+		<integer>6</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Rock and Roll nights in Sarjapur Road</string>
+		<key>eventType</key>
+		<string>paid</string>
+		<key>eventId</key>
+		<integer>7</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Barbecue Fridays in Whitefield</string>
+		<key>eventType</key>
+		<string>paid</string>
+		<key>eventId</key>
+		<integer>8</integer>
+	</dict>
+	<dict>
+		<key>eventName</key>
+		<string>Summer workshop in Indiranagar</string>
+		<key>eventType</key>
+		<string>free</string>
+		<key>eventId</key>
+		<integer>9</integer>
+	</dict>
+</array>
+</plist>
