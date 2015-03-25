@@ -17,7 +17,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *eventNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *placeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *eventTypeLabel;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *leadingSpaceConttraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *widthConttraint;
 
 
-- (void) loadDataInView:(Event *) eventDetails;
+- (void) loadDataInView:(Event *) eventDetails forMenuType:(NSString *)menuType;
 @end

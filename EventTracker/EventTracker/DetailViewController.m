@@ -45,15 +45,16 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
-	viewType = @"menu";
+	//Fix to issue that navigation bar covers view in iOS 7.0.
+	self.edgesForExtendedLayout = UIRectEdgeNone;
+
+	viewType = EVENT_LIST_MENU_TYPE;
 	[Event fetchAllEventsWithCompletionBlock:^(NSArray *array, NSError *error) {
 		events = array;
 		[_menuCollectionView reloadData];
 	}];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self configureView];
-	MasterViewController *vc = (MasterViewController *)[[self.splitViewController.viewControllers firstObject] topViewController];
 //	vc.didSelectEvent = ^(Event *eventDetails) {
 //		[self showEventWithDetails:eventDetails];
 //	};
@@ -65,6 +66,13 @@
 	
 		UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
 		[button addTarget:self action:@selector(changeMenuType) forControlEvents:UIControlEventTouchUpInside];
+	if ([viewType isEqualToString:EVENT_LIST_MENU_TYPE]) {
+		[button setTitle:EVENT_LIST_TABLE_TYPE forState:UIControlStateNormal];
+
+	} else {
+		[button setTitle:EVENT_LIST_MENU_TYPE forState:UIControlStateNormal];
+
+	}
 		[button setTitle:viewType forState:UIControlStateNormal];
 		[button setTintColor:[UIColor redColor]];
 		button.frame = CGRectMake(0, 0, 60, 30);
@@ -86,14 +94,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	
 	ETEventCollectionView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ETEventCollectionView class]) forIndexPath:indexPath];
-	if (indexPath.row % 2 == 0) {
-		cell.backgroundColor = [UIColor redColor];
-	} else {
-		cell.backgroundColor = [UIColor greenColor];
-	}
 	Event *event = [events objectAtIndex:indexPath.row];
 
-	[cell loadDataInView:event];
+	[cell loadDataInView:event forMenuType:viewType];
 	NSLog(@"======%@",event.eventName);
 	return cell;
 }
@@ -105,7 +108,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
-	if ([viewType isEqualToString:@"menu"]) {
+	if ([viewType isEqualToString:EVENT_LIST_MENU_TYPE]) {
 		return CGSizeMake(200, 200);
 	} else
 		return CGSizeMake(600, 200);
@@ -121,16 +124,17 @@
 //	[_menuCollectionView reloadData];
 }
 - (void) changeMenuType {
-	if ([viewType isEqualToString:@"menu"]) {
-		viewType = @"table";
+	if ([viewType isEqualToString:EVENT_LIST_MENU_TYPE]) {
+		viewType = EVENT_LIST_TABLE_TYPE;
 	} else {
-		viewType = @"menu";
+		viewType = EVENT_LIST_MENU_TYPE;
 	}
 	
 	[self.menuCollectionView performBatchUpdates:^{
 		[self.menuCollectionView.collectionViewLayout invalidateLayout];
 		[self.menuCollectionView setCollectionViewLayout:self.menuCollectionView.collectionViewLayout animated:YES];
 	} completion:^(BOOL finished) {
+		[self.menuCollectionView reloadData];
 		[self addMenuBarButton];
 	}];
 

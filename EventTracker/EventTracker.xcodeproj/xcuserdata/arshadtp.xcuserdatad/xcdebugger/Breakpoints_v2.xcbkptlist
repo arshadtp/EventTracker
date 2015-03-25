@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EventTracker/DetailViewController.m"
-            timestampString = "449011585.032516"
+            timestampString = "449015552.624003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-addMenuBarButton"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-changeMenuTypeButtonAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EventTracker/CustomClasses/ETEventCollectionView.m"
+            timestampString = "449013630.006432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-loadDataInView:forMenuType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

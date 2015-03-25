@@ -11,5 +11,7 @@
 
 #define APP_DELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
+static NSString *const EVENT_LIST_MENU_TYPE = @"Menu";
+static NSString *const EVENT_LIST_TABLE_TYPE = @"List";
 
 #endif
