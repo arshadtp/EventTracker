@@ -12,4 +12,5 @@ typedef void(^loadImageSuccessBlock)(UIImage *image, NSError *error);
 
 @interface ETImageView : UIImageView
 
+- (void)loadImageForUrl:(NSString *)urlString withSuccessBlock:(loadImageSuccessBlock) successBlock;
 @end

@@ -12,22 +12,27 @@
 
 + (void) loadStaticEvents {
 	
-	NSManagedObjectContext *context = [[ETDBManager sharedManager] managedObjectContext];
-	
-	NSArray *staticEvents = [ETUtilities getStaticEvents];
-	if (staticEvents) {
-		[staticEvents enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-			NSManagedObject *newEvents = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class]) inManagedObjectContext:context];
-			[newEvents setValuesForKeysWithDictionary:obj];
-			if (*stop) {
-				NSError *error;
-				if (![context save:&error]) {
-					// Handle the error.
-				}
-
+	[self fetchAllEventsWithCompletionBlock:^(NSArray *array, NSError *error) {
+		if (!array || array.count == 0) {
+			NSManagedObjectContext *context = [[ETDBManager sharedManager] managedObjectContext];
+			
+			NSArray *staticEvents = [ETUtilities getStaticEvents];
+			if (staticEvents) {
+				[staticEvents enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+					NSManagedObject *newEvents = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class]) inManagedObjectContext:context];
+					[newEvents setValuesForKeysWithDictionary:obj];
+					if (*stop) {
+						NSError *error;
+						if (![context save:&error]) {
+							// Handle the error.
+						}
+						
+					}
+				}];
 			}
-		}];
-	}
+		}
+	}];
+	
 }
 
 +(void) fetchAllEventsWithCompletionBlock:(didFetchEvents) completionBlock {
@@ -38,14 +43,6 @@
 	__block NSError *error;
 	NSArray *objects = [context executeFetchRequest:request error:&error];
 	completionBlock(objects, error);
-
-//	if (error) {
-//		completionBlock(objects, error);
-//		// handle error
-//	} else {
-//completionBlock(
-//	}
-
 }
 
 +(instancetype) getEventWithEventId:(NSNumber *) eventId {
@@ -62,16 +59,7 @@
 	} else if(objects && objects.count > 0){
 		return [objects firstObject];
 	}
-	return nil;
-//	completionBlock(objects, error);
-	
-	//	if (error) {
-	//		completionBlock(objects, error);
-	//		// handle error
-	//	} else {
-	//completionBlock(
-	//	}
-	
+	return nil;	
 }
 
 

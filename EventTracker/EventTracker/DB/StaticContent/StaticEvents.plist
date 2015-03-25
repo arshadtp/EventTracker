@@ -3,6 +3,10 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>place</key>
+		<string>Kochi</string>
+		<key>eventThumbNailURL</key>
+		<string>http://upload.wikimedia.org/wikipedia/en/thumb/e/e7/ICC_logo.svg/1024px-ICC_logo.svg.png</string>
 		<key>eventName</key>
 		<string>Impressions &amp; Expressions in MG Road</string>
 		<key>eventType</key>
@@ -11,6 +15,10 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Bangalore</string>
+		<key>eventThumbNailURL</key>
+		<string>http://www.ordersatellitenow.com/blog/wp-content/uploads/2011/02/ICC-World-Cup-2011.jpg</string>
 		<key>eventName</key>
 		<string>Italian carnival in Electronic City </string>
 		<key>eventType</key>
@@ -19,6 +27,10 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Delhi</string>
+		<key>eventThumbNailURL</key>
+		<string>http://everyhour.in/sites/default/files/BCCI-backs-structural-overhaul-plans-of-international-cricket-council.jpg</string>
 		<key>eventName</key>
 		<string>Metallica Concert in Palace Grounds</string>
 		<key>eventType</key>
@@ -27,6 +39,10 @@
 		<integer>2</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Kolakatha</string>
+		<key>eventThumbNailURL</key>
+		<string>http://www.techprone.com/wp-content/uploads/2011/02/ICC-cricket-World-Cup1.jpg</string>
 		<key>eventName</key>
 		<string>Saree Exhibition in Malleswaram Grounds</string>
 		<key>eventType</key>
@@ -35,6 +51,10 @@
 		<integer>3</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Mumbai</string>
+		<key>eventThumbNailURL</key>
+		<string>http://www.ghow.org/wp-content/uploads/2015/01/ICC-Cricket-World-Cup.jpg</string>
 		<key>eventName</key>
 		<string>Wine tasting event in Links Brewery</string>
 		<key>eventType</key>
@@ -43,6 +63,10 @@
 		<integer>4</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Chennai</string>
+		<key>eventThumbNailURL</key>
+		<string>http://icc-live.s3.amazonaws.com/cms/media/about_docs/gatorade.jpg</string>
 		<key>eventName</key>
 		<string>Startups Meet in Kanteerava Indoor Stadium</string>
 		<key>eventType</key>
@@ -51,6 +75,10 @@
 		<integer>5</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>TVM</string>
+		<key>eventThumbNailURL</key>
+		<string>http://upload.wikimedia.org/wikipedia/en/thumb/e/ee/2007_Cricket_World_Cup_logo.svg/1224px-2007_Cricket_World_Cup_logo.svg.png</string>
 		<key>eventName</key>
 		<string>Summer Noon Party in Kumara Park</string>
 		<key>eventType</key>
@@ -59,6 +87,10 @@
 		<integer>6</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Punjab</string>
+		<key>eventThumbNailURL</key>
+		<string>http://upload.wikimedia.org/wikipedia/en/thumb/2/26/2011_Cricket_World_Cup_Logo.svg/938px-2011_Cricket_World_Cup_Logo.svg.png</string>
 		<key>eventName</key>
 		<string>Rock and Roll nights in Sarjapur Road</string>
 		<key>eventType</key>
@@ -67,6 +99,10 @@
 		<integer>7</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Pune</string>
+		<key>eventThumbNailURL</key>
+		<string>http://www.iloveindia.com/sports/pics/cricket-world-cup-2007-mascot.jpg</string>
 		<key>eventName</key>
 		<string>Barbecue Fridays in Whitefield</string>
 		<key>eventType</key>
@@ -75,6 +111,10 @@
 		<integer>8</integer>
 	</dict>
 	<dict>
+		<key>place</key>
+		<string>Calicut</string>
+		<key>eventThumbNailURL</key>
+		<string>https://wallpapers99.com/Icc_Cricket_World_Cup_2011--w1280x960--0--0--images/wallpaper/1280x960/Icc_Cricket_World_Cup_2011_34408.jpg</string>
 		<key>eventName</key>
 		<string>Summer workshop in Indiranagar</string>
 		<key>eventType</key>

@@ -78,11 +78,6 @@
 	}
 	if (user.eventOrderArray) {
 		[newUser setValue:user.eventOrderArray forKey:@"eventOrderArray"];
-
-	} else {
-		NSArray *a = @[@(2),@(1)];
-		[newUser setValue:a forKey:@"eventOrderArray"];
-
 	}
 	NSError *error;
 	if (![context save:&error]) {

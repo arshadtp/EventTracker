@@ -9,6 +9,7 @@
 #import "ETCurrentUserSharedManager.h"
 #import "User+EYUserHelper.h"
 #import "Event+ETEventHelper.h"
+
 @interface ETCurrentUserSharedManager()
 
 @end
@@ -49,7 +50,24 @@
 	[User updateUser:user withCompletionBlock:^(NSError *error) {
 		
 	}];
+}
+
+- (BOOL) isEventExistsInTrackedEvents:(NSNumber *) eventId {
 	
-	
+	NSMutableString *predicateFormat = [NSMutableString stringWithFormat:@"%@ == %@",@"eventId", eventId];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat];
+	NSArray *filteredArray = [self.trackedEvents filteredArrayUsingPredicate:predicate];
+	if (filteredArray && filteredArray.count > 0) {
+		return YES;
+	}
+	return NO;
+}
+
++ (void) registerForTrackedEventChangedNotifcationWithObserver:(id) observer withSelector:(SEL) selector {
+	[[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:DID_CHANGE_TRACKED_EVENT object:nil];
+}
+
++ (void)  removeTrackedEventChangedNotifcationObserver:(id) observer {
+	[[NSNotificationCenter defaultCenter] removeObserver:observer name:DID_CHANGE_TRACKED_EVENT object:nil];
 }
 @end

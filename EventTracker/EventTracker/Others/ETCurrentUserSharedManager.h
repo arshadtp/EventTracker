@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const DID_CHANGE_TRACKED_EVENT = @"did change tracked event";
+
 @interface ETCurrentUserSharedManager : NSObject
 
 + (ETCurrentUserSharedManager *)sharedManager;
 
 - (void) updateUserTrackedEventToDB ;
+- (BOOL) isEventExistsInTrackedEvents:(NSNumber *) eventId;
+
++ (void) registerForTrackedEventChangedNotifcationWithObserver:(id) observer withSelector:(SEL) selector;
++ (void)  removeTrackedEventChangedNotifcationObserver:(id) observer ;
 @property (nonatomic, strong) NSMutableArray *trackedEvents;
 @end

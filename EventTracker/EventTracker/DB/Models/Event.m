@@ -14,5 +14,7 @@
 @dynamic eventName;
 @dynamic eventType;
 @dynamic eventId;
+@dynamic place;
+@dynamic eventThumbNailURL;
 
 @end

@@ -13,7 +13,10 @@
 @interface Event : NSManagedObject
 
 @property (nonatomic, retain) NSString * eventName;
+@property (nonatomic, retain) NSString * place;
+@property (nonatomic, retain) NSString * eventThumbNailURL;
 @property (nonatomic, retain) NSString * eventType;
+
 @property (nonatomic, retain) NSNumber * eventId;
 
 @end

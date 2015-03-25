@@ -10,16 +10,15 @@
 
 @implementation ETEventCollectionView
 
-- (void) configure:(NSString *) type {
+- (void) loadDataInView:(Event *) eventDetails {
 	
-	if ([type isEqualToString:@"menu"]) {
-		_widthSpaceContraint.constant = 150;
-
-	} else {
-		_widthSpaceContraint.constant = 350;
-
-	}
-	[self layoutIfNeeded];
-	
+	[_eventImageView loadImageForUrl:eventDetails.eventThumbNailURL withSuccessBlock:^(UIImage *image, NSError *error) {
+		if (error) {
+			_eventImageView.image = image;
+		}
+	}];
+	_eventNameLabel.text = eventDetails.eventName;
+	_eventTypeLabel.text = eventDetails.eventType;
+	_placeLabel.text = eventDetails.place;
 }
 @end

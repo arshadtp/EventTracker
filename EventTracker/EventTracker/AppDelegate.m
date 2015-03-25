@@ -11,7 +11,6 @@
 #import "MasterViewController.h"
 #import "ETDBManager.h"
 #import "Event+ETEventHelper.h"
-#import "ETLoginManager.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -23,18 +22,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
 	[Event loadStaticEvents];
-	// Override point for customization after application launch.
-	UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-	UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-	navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-	splitViewController.delegate = self;
-
-	UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-	MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-//	controller.managedObjectContext = [[ETDBManager sharedManager] managedObjectContext];
 	
-	[self performSelector:@selector(showUserNameAlert) withObject:nil afterDelay:2];
+	[self customiseNavigationBar];
 	return YES;
+}
+
+#define GREEN_TITLE_COLOR ([UIColor colorWithRed:114.0f/255.0f green:191.0f/255.0f blue:68.0f/255.0f alpha:1.0f])
+#define NAVIGATION_BAR_COLOR ([UIColor colorWithRed:43.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f])
+- (void)customiseNavigationBar {
+	[[UINavigationBar appearance] setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+	[[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+	// setting nav bar back button text nil
+	[UINavigationBar appearance].topItem.title = @"";
+	[[UINavigationBar appearance] setTintColor:GREEN_TITLE_COLOR];
+	[[UINavigationBar appearance] setBarTintColor:NAVIGATION_BAR_COLOR];
+	
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -74,10 +76,7 @@
 
 #pragma mark - Core Data stack
 
-- (void) showUserNameAlert {
-	
-	[ETLoginManager showUserNameAlert];
-}
+
 
 //@synthesize managedObjectContext = _managedObjectContext;
 //@synthesize managedObjectModel = _managedObjectModel;

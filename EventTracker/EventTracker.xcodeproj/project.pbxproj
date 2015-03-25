@@ -29,6 +29,8 @@
 		53EB42101AC2C1E600D34158 /* NSManagedObject+ETManageObjectInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB420F1AC2C1E600D34158 /* NSManagedObject+ETManageObjectInitializer.m */; };
 		53EB42141AC3198800D34158 /* ETImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB42131AC3198800D34158 /* ETImageView.m */; };
 		53EB42171AC31D8A00D34158 /* ETEventCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB42161AC31D8A00D34158 /* ETEventCollectionView.m */; };
+		53EB421B1AC33E4A00D34158 /* ETEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB421A1AC33E4A00D34158 /* ETEventDetailViewController.m */; };
+		53EB421F1AC33F0200D34158 /* UIViewController+ETNibLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB421E1AC33F0200D34158 /* UIViewController+ETNibLoading.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +61,10 @@
 		53B4F6451ABF329700A83705 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53B4F6461ABF329700A83705 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		53B4F6491ABF329700A83705 /* EventTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventTracker.xcdatamodel; sourceTree = "<group>"; };
-		53B4F64B1ABF329700A83705 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		53B4F64C1ABF329700A83705 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		53B4F64E1ABF329700A83705 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		53B4F64F1ABF329700A83705 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		53B4F64B1ABF329700A83705 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
+		53B4F64C1ABF329700A83705 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
+		53B4F64E1ABF329700A83705 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
+		53B4F64F1ABF329700A83705 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
 		53B4F6521ABF329700A83705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53B4F6541ABF329700A83705 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		53B4F6571ABF329700A83705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -84,6 +86,10 @@
 		53EB42131AC3198800D34158 /* ETImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETImageView.m; sourceTree = "<group>"; };
 		53EB42151AC31D8900D34158 /* ETEventCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETEventCollectionView.h; sourceTree = "<group>"; };
 		53EB42161AC31D8A00D34158 /* ETEventCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETEventCollectionView.m; sourceTree = "<group>"; };
+		53EB42191AC33E4A00D34158 /* ETEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETEventDetailViewController.h; sourceTree = "<group>"; };
+		53EB421A1AC33E4A00D34158 /* ETEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETEventDetailViewController.m; sourceTree = "<group>"; };
+		53EB421D1AC33F0200D34158 /* UIViewController+ETNibLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ETNibLoading.h"; sourceTree = "<group>"; };
+		53EB421E1AC33F0200D34158 /* UIViewController+ETNibLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ETNibLoading.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,16 +192,14 @@
 		53B4F6401ABF329700A83705 /* EventTracker */ = {
 			isa = PBXGroup;
 			children = (
+				53EB421C1AC33E9200D34158 /* Categories */,
+				53EB42181AC33E2300D34158 /* ViewController */,
 				53EB42111AC3195D00D34158 /* CustomClasses */,
 				53EB42001AC27B9B00D34158 /* Others */,
 				537939431AC1E32F0015E2D1 /* Utilities */,
 				537939301AC1D9420015E2D1 /* DB */,
 				53B4F6451ABF329700A83705 /* AppDelegate.h */,
 				53B4F6461ABF329700A83705 /* AppDelegate.m */,
-				53B4F64B1ABF329700A83705 /* MasterViewController.h */,
-				53B4F64C1ABF329700A83705 /* MasterViewController.m */,
-				53B4F64E1ABF329700A83705 /* DetailViewController.h */,
-				53B4F64F1ABF329700A83705 /* DetailViewController.m */,
 				53B4F6511ABF329700A83705 /* Main.storyboard */,
 				53B4F6541ABF329700A83705 /* Images.xcassets */,
 				53B4F6561ABF329700A83705 /* LaunchScreen.xib */,
@@ -254,6 +258,28 @@
 				53EB42161AC31D8A00D34158 /* ETEventCollectionView.m */,
 			);
 			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		53EB42181AC33E2300D34158 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				53B4F64B1ABF329700A83705 /* MasterViewController.h */,
+				53B4F64C1ABF329700A83705 /* MasterViewController.m */,
+				53B4F64E1ABF329700A83705 /* DetailViewController.h */,
+				53B4F64F1ABF329700A83705 /* DetailViewController.m */,
+				53EB42191AC33E4A00D34158 /* ETEventDetailViewController.h */,
+				53EB421A1AC33E4A00D34158 /* ETEventDetailViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		53EB421C1AC33E9200D34158 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				53EB421D1AC33F0200D34158 /* UIViewController+ETNibLoading.h */,
+				53EB421E1AC33F0200D34158 /* UIViewController+ETNibLoading.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,9 +395,11 @@
 				5379393B1AC1D9D50015E2D1 /* ETDBManager.m in Sources */,
 				53B4F64D1ABF329700A83705 /* MasterViewController.m in Sources */,
 				537939361AC1D9420015E2D1 /* Event.m in Sources */,
+				53EB421B1AC33E4A00D34158 /* ETEventDetailViewController.m in Sources */,
 				5379393F1AC1DE180015E2D1 /* Event+ETEventHelper.m in Sources */,
 				53B4F64A1ABF329700A83705 /* EventTracker.xcdatamodeld in Sources */,
 				53B4F6471ABF329700A83705 /* AppDelegate.m in Sources */,
+				53EB421F1AC33F0200D34158 /* UIViewController+ETNibLoading.m in Sources */,
 				53EB420A1AC2B9D100D34158 /* ETCurrentUserSharedManager.m in Sources */,
 				53B4F6441ABF329700A83705 /* main.m in Sources */,
 				53EB42141AC3198800D34158 /* ETImageView.m in Sources */,
