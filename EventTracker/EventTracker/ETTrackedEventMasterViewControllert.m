@@ -47,6 +47,7 @@ NSInteger const TOTAL_SECTIONS = 2;
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	// Show Login Alert
 	[ETLoginManager showUserNameAlert];
+	
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -125,16 +126,15 @@ NSInteger const TOTAL_SECTIONS = 2;
 		[trackeEvents removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 		[[ETCurrentUserSharedManager sharedManager] updateUserTrackedEventToDB];
+		[self updateDetailVC];
 	}
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (indexPath.section == All_Events) {
-		ETEventListViewController *vc = [ETEventListViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventListViewController class])];
-		UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-		[self.splitViewController showDetailViewController:nvc sender:self];
-		
+		[self showAllEvents];
+
 	} else {
 		ETEventDetailsViewController *vc = [ETEventDetailsViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailsViewController class])];
 		vc.eventDetails = [trackeEvents objectAtIndex:indexPath.row];
@@ -172,6 +172,8 @@ NSInteger const TOTAL_SECTIONS = 2;
 	[trackeEvents removeObjectAtIndex:fromIndexPath.row];
 	[trackeEvents insertObject:item atIndex:toIndexPath.row];
 	[[ETCurrentUserSharedManager sharedManager] updateUserTrackedEventToDB];
+	[self updateDetailVC];
+
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
@@ -194,4 +196,21 @@ NSInteger const TOTAL_SECTIONS = 2;
 	}
 }
 
+- (void) showAllEvents {
+	ETEventListViewController *vc = [ETEventListViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventListViewController class])];
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+	[self.splitViewController showDetailViewController:nvc sender:self];
+
+}
+- (void) updateDetailVC {
+	
+	UIViewController *vc = [[self.splitViewController.viewControllers lastObject] topViewController];
+	if ([vc isKindOfClass:[ETEventDetailsViewController class]]) {
+		ETEventDetailsViewController *detialVc = (ETEventDetailsViewController *) vc;
+		if (![[ETCurrentUserSharedManager sharedManager] isEventExistsInTrackedEvents:detialVc.eventDetails.eventId]) {
+			[self showAllEvents];
+		}
+		
+	}
+}
 @end

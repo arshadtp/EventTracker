@@ -56,7 +56,7 @@
 	
 	NSMutableString *predicateFormat = [NSMutableString stringWithFormat:@"%@ == %@",@"eventId", eventId];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat];
-	NSArray *filteredArray = [self.trackedEvents filteredArrayUsingPredicate:predicate];
+	NSArray *filteredArray = [_trackedEvents filteredArrayUsingPredicate:predicate];
 	if (filteredArray && filteredArray.count > 0) {
 		return YES;
 	}
