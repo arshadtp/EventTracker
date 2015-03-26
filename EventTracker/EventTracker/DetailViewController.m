@@ -25,60 +25,38 @@
 
 @implementation DetailViewController
 
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem {
-	if (_detailItem != newDetailItem) {
-	    _detailItem = newDetailItem;
-	        
-	    // Update the view.
-	    [self configureView];
-	}
-}
-
-- (void)configureView {
-	// Update the user interface for the detail item.
-	if (self.detailItem) {
-	    self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
-	}
-}
-
 - (void)viewDidLoad {
+	
 	[super viewDidLoad];
 	//Fix to issue that navigation bar covers view in iOS 7.0.
 	self.edgesForExtendedLayout = UIRectEdgeNone;
 
 	viewType = EVENT_LIST_MENU_TYPE;
+	// Load events from DB
 	[Event fetchAllEventsWithCompletionBlock:^(NSArray *array, NSError *error) {
 		events = array;
 		[_menuCollectionView reloadData];
 	}];
 	// Do any additional setup after loading the view, typically from a nib.
-	[self configureView];
-//	vc.didSelectEvent = ^(Event *eventDetails) {
-//		[self showEventWithDetails:eventDetails];
-//	};
-//	MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 	[self addMenuBarButton];
 }
 
+
 - (void) addMenuBarButton {
 	
-		UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
-		[button addTarget:self action:@selector(changeMenuType) forControlEvents:UIControlEventTouchUpInside];
+	UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+	[button addTarget:self action:@selector(changeMenuType) forControlEvents:UIControlEventTouchUpInside];
 	if ([viewType isEqualToString:EVENT_LIST_MENU_TYPE]) {
 		[button setTitle:EVENT_LIST_TABLE_TYPE forState:UIControlStateNormal];
-
 	} else {
 		[button setTitle:EVENT_LIST_MENU_TYPE forState:UIControlStateNormal];
-
 	}
-		[button setTitle:viewType forState:UIControlStateNormal];
-		[button setTintColor:[UIColor redColor]];
-		button.frame = CGRectMake(0, 0, 60, 30);
-		UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
-		self.navigationItem.rightBarButtonItem = barButton;
+	[button setTintColor:[UIColor redColor]];
+	button.frame = CGRectMake(0, 0, 60, 30);
+	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+	self.navigationItem.rightBarButtonItem = barButton;
 }
+
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
@@ -97,7 +75,6 @@
 	Event *event = [events objectAtIndex:indexPath.row];
 
 	[cell loadDataInView:event forMenuType:viewType];
-	NSLog(@"======%@",event.eventName);
 	return cell;
 }
 
@@ -106,23 +83,22 @@
 	[self showEventWithDetails:[events objectAtIndex:indexPath.row]];
 }
 
+#define MENU_TYPE_CELL_SIZE CGSizeMake(200, 200)
+#define LIST_TYPE_CELL_SIZE CGSizeMake(600, 200)
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if ([viewType isEqualToString:EVENT_LIST_MENU_TYPE]) {
-		return CGSizeMake(200, 200);
+		return MENU_TYPE_CELL_SIZE;
 	} else
-		return CGSizeMake(600, 200);
+		return LIST_TYPE_CELL_SIZE;
 }
 
 #pragma mark - #
 
-
-- (IBAction)changeMenuTypeButtonAction:(id)sender {
-	
-	
-	[self changeMenuType];
-//	[_menuCollectionView reloadData];
-}
+/**
+ *  Change the list view type
+ */
 - (void) changeMenuType {
 	if ([viewType isEqualToString:EVENT_LIST_MENU_TYPE]) {
 		viewType = EVENT_LIST_TABLE_TYPE;
@@ -139,6 +115,7 @@
 	}];
 
 }
+
 - (void) showEventWithDetails:(Event *) eventDatails {
 	
 	ETEventDetailViewController *vc = [ETEventDetailViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailViewController class])];
@@ -146,4 +123,6 @@
 	[self.navigationController pushViewController:vc animated:YES];
 
 }
+
+
 @end

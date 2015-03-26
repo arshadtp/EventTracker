@@ -12,5 +12,11 @@ typedef void(^loadImageSuccessBlock)(UIImage *image, NSError *error);
 
 @interface ETImageView : UIImageView
 
+/**
+ *  Method which load image async in background
+ *
+ *  @param urlString    url of image to be loaded
+ *  @param successBlock success callback
+ */
 - (void)loadImageForUrl:(NSString *)urlString withSuccessBlock:(loadImageSuccessBlock) successBlock;
 @end

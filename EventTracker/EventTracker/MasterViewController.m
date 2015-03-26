@@ -17,7 +17,10 @@
 #import "UIViewController+ETNibLoading.h"
 #import "DetailViewController.h"
 
+NSInteger const TOTAL_SECTIONS = 2;
+
 @interface MasterViewController () {
+	
 	NS_ENUM(NSInteger, SectionType){
 		All_Events,
 		Tracked_Events
@@ -36,12 +39,13 @@
 }
 
 - (void)viewDidLoad {
+	
 	[super viewDidLoad];
 	
 	[ETLoginManager registerForUserLoginNotifcationWithObserver:self withSelector:@selector(userDidLogin)];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
-//	self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+	// Show Login Alert
 	[ETLoginManager showUserNameAlert];
 }
 
@@ -65,22 +69,29 @@
 - (void) dealloc {
 	[ETLoginManager removeForUserLoginNotifcationObserver:self];
 }
+
+/**
+ *  selector that will respond to Login notification
+ */
 - (void) userDidLogin {
 	[self loadTrackedEvents];
 }
 
+/**
+ *  Load current user's trackecd events
+ */
 - (void) loadTrackedEvents {
 	
 	trackeEvents = [[ETCurrentUserSharedManager sharedManager] trackedEvents];
 	[self.tableView reloadData];
-
+	
 }
 
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 2;
+	return TOTAL_SECTIONS;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if (section == All_Events) {
@@ -100,11 +111,11 @@
 	return cell;
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == All_Events) {
 		return NO;
 	}
-	// Return NO if you do not want the specified item to be editable.
 	return YES;
 }
 
@@ -123,13 +134,13 @@
 		DetailViewController *vc = [DetailViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([DetailViewController class])];
 		UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
 		[self.splitViewController showDetailViewController:nvc sender:self];
-
+		
 	} else {
 		ETEventDetailViewController *vc = [ETEventDetailViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailViewController class])];
 		vc.eventDetails = [trackeEvents objectAtIndex:indexPath.row];
 		UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
 		[self.splitViewController showDetailViewController:nvc sender:self];
-
+		
 	}
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,7 +148,7 @@
 	if (indexPath.section == All_Events) {
 		return UITableViewCellEditingStyleNone;
 	}
-
+	
 	return UITableViewCellEditingStyleDelete;
 }
 
@@ -147,7 +158,7 @@
 	if (indexPath.section == All_Events) {
 		return NO;
 	}
-
+	
 	if (indexPath.row == [trackeEvents count]) {
 		return NO;
 	}
@@ -155,6 +166,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+	
 	Event *item = [trackeEvents objectAtIndex:fromIndexPath.row];
 	[trackeEvents removeObjectAtIndex:fromIndexPath.row];
 	[trackeEvents insertObject:item atIndex:toIndexPath.row];
@@ -162,6 +174,7 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+	
 	if ([proposedDestinationIndexPath row] < [trackeEvents count]) {
 		return proposedDestinationIndexPath;
 	}
@@ -169,12 +182,14 @@
 	return betterIndexPath;
 }
 
+#pragma Mark - #
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 	
 	if (trackeEvents && indexPath.row < trackeEvents.count)  {
 		Event *event = [trackeEvents objectAtIndex:indexPath.row];
 		cell.textLabel.text = event.eventName;
-
+		
 	}
 }
 

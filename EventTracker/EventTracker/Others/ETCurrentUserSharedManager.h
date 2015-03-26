@@ -14,7 +14,18 @@ static NSString *const DID_CHANGE_TRACKED_EVENT = @"did change tracked event";
 
 + (ETCurrentUserSharedManager *)sharedManager;
 
+/**
+ *  Store the tracked events Ids to User table
+ */
 - (void) updateUserTrackedEventToDB ;
+
+/**
+ *  Method check whether a perticuler event is present in tracked events
+ *
+ *  @param eventId <#eventId description#>
+ *
+ *  @return true if eventId present in tracked event
+ */
 - (BOOL) isEventExistsInTrackedEvents:(NSNumber *) eventId;
 
 + (void) registerForTrackedEventChangedNotifcationWithObserver:(id) observer withSelector:(SEL) selector;
