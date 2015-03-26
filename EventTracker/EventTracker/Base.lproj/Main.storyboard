@@ -24,7 +24,7 @@
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" title="Detail" id="JEX-9P-axG" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ETEventListViewController" title="Detail" id="JEX-9P-axG" customClass="ETEventListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -142,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="641" y="120"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Event Details View Controller-->
         <scene sceneID="yXu-gx-2Z5">
             <objects>
-                <viewController storyboardIdentifier="ETEventDetailViewController" id="biy-gM-8kY" customClass="ETEventDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ETEventDetailsViewController" id="biy-gM-8kY" customClass="ETEventDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CiN-ii-r0W"/>
                         <viewControllerLayoutGuide type="bottom" id="27w-XQ-p4w"/>
@@ -228,7 +228,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="ETTrackedEventMasterViewControllert" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,21 +1,21 @@
 //
-//  DetailViewController.m
+//  ETEventListViewController.m
 //  EventTracker
 //
 //  Created by Arshad T P on 3/22/15.
 //  Copyright (c) 2015 Ab'initio. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "ETEventListViewController.h"
 #import "Event+ETEventHelper.h"
 #import "ETEventCollectionView.h"
 #import "UIViewController+ETNibLoading.h"
-#import "ETEventDetailViewController.h"
+#import "ETEventDetailsViewController.h"
 #import "AppDelegate.h"
 #import "Constants.h"
-#import "MasterViewController.h"
+#import "ETTrackedEventMasterViewControllert.h"
 
-@interface DetailViewController () {
+@interface ETEventListViewController () {
 	
 	NSString *viewType;
 	NSArray *events;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation DetailViewController
+@implementation ETEventListViewController
 
 - (void)viewDidLoad {
 	
@@ -118,7 +118,7 @@
 
 - (void) showEventWithDetails:(Event *) eventDatails {
 	
-	ETEventDetailViewController *vc = [ETEventDetailViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailViewController class])];
+	ETEventDetailsViewController *vc = [ETEventDetailsViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailsViewController class])];
 	vc.eventDetails = eventDatails;
 	[self.navigationController pushViewController:vc animated:YES];
 

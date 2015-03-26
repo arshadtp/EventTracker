@@ -1,5 +1,5 @@
 //
-//  ETEventDetailViewController.h
+//  ETEventDetailsViewController.h
 //  EventTracker
 //
 //  Created by Arshad T P on 3/26/15.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event+ETEventHelper.h"
 #import "ETImageView.h"
-@interface ETEventDetailViewController : UIViewController
+@interface ETEventDetailsViewController : UIViewController
 
 @property (nonatomic, strong) Event *eventDetails;
 

@@ -1,25 +1,25 @@
 //
-//  MasterViewController.m
+//  ETTrackedEventMasterViewControllert.m
 //  EventTracker
 //
 //  Created by Arshad T P on 3/22/15.
 //  Copyright (c) 2015 Ab'initio. All rights reserved.
 //
 
-#import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "ETTrackedEventMasterViewControllert.h"
+#import "ETEventListViewController.h"
 #import "ETLoginManager.h"
 #import "User+EYUserHelper.h"
 #import "ETCurrentUserSharedManager.h"
 #import "Constants.h"
 #import "ETLoginManager.h"
-#import "ETEventDetailViewController.h"
+#import "ETEventListViewController.h"
 #import "UIViewController+ETNibLoading.h"
-#import "DetailViewController.h"
+#import "ETEventDetailsViewController.h"
 
 NSInteger const TOTAL_SECTIONS = 2;
 
-@interface MasterViewController () {
+@interface ETTrackedEventMasterViewControllert () {
 	
 	NS_ENUM(NSInteger, SectionType){
 		All_Events,
@@ -30,7 +30,7 @@ NSInteger const TOTAL_SECTIONS = 2;
 
 @end
 
-@implementation MasterViewController
+@implementation ETTrackedEventMasterViewControllert
 
 - (void)awakeFromNib {
 	[super awakeFromNib];
@@ -131,15 +131,16 @@ NSInteger const TOTAL_SECTIONS = 2;
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (indexPath.section == All_Events) {
-		DetailViewController *vc = [DetailViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([DetailViewController class])];
+		ETEventListViewController *vc = [ETEventListViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventListViewController class])];
 		UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
 		[self.splitViewController showDetailViewController:nvc sender:self];
 		
 	} else {
-		ETEventDetailViewController *vc = [ETEventDetailViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailViewController class])];
+		ETEventDetailsViewController *vc = [ETEventDetailsViewController initWithViewControllerWithStoryBoardId:NSStringFromClass([ETEventDetailsViewController class])];
 		vc.eventDetails = [trackeEvents objectAtIndex:indexPath.row];
 		UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
 		[self.splitViewController showDetailViewController:nvc sender:self];
+
 		
 	}
 }
@@ -192,6 +193,5 @@ NSInteger const TOTAL_SECTIONS = 2;
 		
 	}
 }
-
 
 @end

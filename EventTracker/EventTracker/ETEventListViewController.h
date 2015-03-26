@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  ETEventListViewController.h
 //  EventTracker
 //
 //  Created by Arshad T P on 3/22/15.
@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface ETEventListViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView *menuCollectionView;
 
 @end
+
+
 

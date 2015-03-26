@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
-#import "MasterViewController.h"
+#import "ETEventListViewController.h"
+#import "ETTrackedEventMasterViewControllert.h"
 #import "ETDBManager.h"
 #import "Event+ETEventHelper.h"
 

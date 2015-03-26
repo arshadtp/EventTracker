@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  ETTrackedEventMasterViewControllert.h
 //  EventTracker
 //
 //  Created by Arshad T P on 3/22/15.
@@ -11,10 +11,10 @@
 #import "Event+ETEventHelper.h"
 
 typedef void (^didSelectEventBlock)(Event *event) ;
-@class DetailViewController;
+@class ETEventListViewController;
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@interface ETTrackedEventMasterViewControllert : UITableViewController <NSFetchedResultsControllerDelegate>
+@property (strong, nonatomic) ETEventListViewController *ETEventListViewController;
 @property (strong, nonatomic) didSelectEventBlock didSelectEvent;
 
 @end
